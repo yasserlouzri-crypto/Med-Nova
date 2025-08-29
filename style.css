@@ -140,7 +140,7 @@ h2.section-title {
 }
 
 footer {
-  background: #111;
+  background: #53014f;
   color: #fff;
   text-align: center;
   padding: 2rem 1rem;
@@ -148,7 +148,7 @@ footer {
 }
 
 footer a {
-  color: #4B0082;
+  color: #fcfcfc;
   margin: 0 0.5rem;
   text-decoration: none;
   font-weight: bold;

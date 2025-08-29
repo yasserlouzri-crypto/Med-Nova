@@ -169,9 +169,7 @@
 
 <script>
 /* =========================================================
-   MED NOVA – Crossword Engine (ASCII answers, no accents)
-   Grid 22 x 20 – بعض الكلمات لا تتقاطع كثيراً لتسهيل اللصق السريع
-   يمكنك تغيير الإحداثيات لاحقاً إذا حبيت تحاكي الصورة تماماً
+   MED NOVA – Crossword 
 ========================================================= */
 
 (function(){
@@ -288,7 +286,7 @@
 <!-- 🟣 قسم الكويز -->
 <section id="quiz" class="quiz-section">
   <div class="quiz-container">
-    <h2 class="quiz-title">🧠 Quiz Med Nova</h2>
+    <h2 class="quiz-title">🧠 اختبار Med Nova</h2>
     <p class="quiz-subtitle">اختبر معلوماتك الطبية بطريقة ممتعة!</p>
     
     <!-- ⏳ المؤقت -->
@@ -313,7 +311,7 @@
       <h3>أي نوع من الخلايا يحمل المعلومات الوراثية؟</h3>
       <ul>
         <li><button onclick="nextQuestion(2,false)">خلايا الدم</button></li>
-        <li><button onclick="nextQuestion(2,true)">الخلايا الجينية</button></li>
+        <li><button onclick="nextQuestion(2,true)">الخلايا الجينية (DNA)</button></li>
         <li><button onclick="nextQuestion(2,false)">خلايا العضلات</button></li>
       </ul>
     </div>
@@ -327,21 +325,99 @@
       </ul>
     </div>
 
+    <div class="quiz-card" id="q4">
+      <h3>ما هو أكبر عضو في جسم الإنسان؟</h3>
+      <ul>
+        <li><button onclick="nextQuestion(4,false)">الكبد</button></li>
+        <li><button onclick="nextQuestion(4,false)">القلب</button></li>
+        <li><button onclick="nextQuestion(4,true)">الجلد</button></li>
+      </ul>
+    </div>
+
+    <div class="quiz-card" id="q5">
+      <h3>ما اسم الخلايا المسؤولة عن المناعة في الدم؟</h3>
+      <ul>
+        <li><button onclick="nextQuestion(5,true)">الكريات البيضاء</button></li>
+        <li><button onclick="nextQuestion(5,false)">الكريات الحمراء</button></li>
+        <li><button onclick="nextQuestion(5,false)">الصفائح الدموية</button></li>
+      </ul>
+    </div>
+
+    <div class="quiz-card" id="q6">
+      <h3>أين يقع البنكرياس؟</h3>
+      <ul>
+        <li><button onclick="nextQuestion(6,false)">في الرأس</button></li>
+        <li><button onclick="nextQuestion(6,true)">في البطن</button></li>
+        <li><button onclick="nextQuestion(6,false)">في الصدر</button></li>
+      </ul>
+    </div>
+
+    <div class="quiz-card" id="q7">
+      <h3>أي فيتامين يُعرف بفيتامين الشمس؟</h3>
+      <ul>
+        <li><button onclick="nextQuestion(7,false)">فيتامين C</button></li>
+        <li><button onclick="nextQuestion(7,true)">فيتامين D</button></li>
+        <li><button onclick="nextQuestion(7,false)">فيتامين B12</button></li>
+      </ul>
+    </div>
+
+    <div class="quiz-card" id="q8">
+      <h3>ما الوحدة الأساسية في الجهاز العصبي؟</h3>
+      <ul>
+        <li><button onclick="nextQuestion(8,true)">العصبون (Neuron)</button></li>
+        <li><button onclick="nextQuestion(8,false)">الخلايا الجذعية</button></li>
+        <li><button onclick="nextQuestion(8,false)">الصفائح</button></li>
+      </ul>
+    </div>
+
+    <div class="quiz-card" id="q9">
+      <h3>كم عدد الكروموسومات عند الإنسان؟</h3>
+      <ul>
+        <li><button onclick="nextQuestion(9,true)">46 كروموسوم</button></li>
+        <li><button onclick="nextQuestion(9,false)">44 كروموسوم</button></li>
+        <li><button onclick="nextQuestion(9,false)">48 كروموسوم</button></li>
+      </ul>
+    </div>
+
+    <div class="quiz-card" id="q10">
+      <h3>ما هو الغاز الذي نتنفسه للبقاء على قيد الحياة؟</h3>
+      <ul>
+        <li><button onclick="nextQuestion(10,false)">ثاني أكسيد الكربون</button></li>
+        <li><button onclick="nextQuestion(10,true)">الأكسجين</button></li>
+        <li><button onclick="nextQuestion(10,false)">النيتروجين</button></li>
+      </ul>
+    </div>
+
+    <div class="quiz-card" id="q11">
+      <h3>ما هو العظم الأطول في جسم الإنسان؟</h3>
+      <ul>
+        <li><button onclick="nextQuestion(11,true)">عظم الفخذ</button></li>
+        <li><button onclick="nextQuestion(11,false)">عظم الساق</button></li>
+        <li><button onclick="nextQuestion(11,false)">عظم العضد</button></li>
+      </ul>
+    </div>
+
     <div class="quiz-card" id="result">
       <h3>🎉 النتيجة</h3>
       <p id="quiz-score"></p>
       <button onclick="restartQuiz()">🔄 إعادة المحاولة</button>
     </div>
   </div>
+
+  <!-- 🟣 الغطاء الرمادي -->
+  <div class="quiz-overlay" id="quiz-overlay">
+    <button class="start-btn" onclick="startQuiz()">▶️ ابدأ الاختبار</button>
+  </div>
 </section>
 
 <style>
 /* 🎨 تصميم الكويز */
 .quiz-section {
-  background: linear-gradient(135deg, #c1bcc2, #bbb8b8);
+  background: linear-gradient(135deg, #4B0082, #000);
   color: white;
   padding: 80px 20px;
   text-align: center;
+  position: relative;
 }
 
 .quiz-container {
@@ -353,6 +429,8 @@
   padding: 40px;
   box-shadow: 0 10px 40px rgba(0,0,0,0.4);
   animation: fadeIn 1s ease;
+  position: relative;
+  z-index: 1;
 }
 
 .quiz-title {
@@ -399,14 +477,8 @@
   transition: width 0.5s ease;
 }
 
-.quiz-card {
-  display: none;
-}
-
-.quiz-card.active {
-  display: block;
-  animation: slideUp 0.7s ease;
-}
+.quiz-card { display: none; }
+.quiz-card.active { display: block; animation: slideUp 0.7s ease; }
 
 .quiz-card h3 {
   font-size: 1.3rem;
@@ -414,14 +486,8 @@
   color: #222;
 }
 
-.quiz-card ul {
-  list-style: none;
-  padding: 0;
-}
-
-.quiz-card li {
-  margin: 10px 0;
-}
+.quiz-card ul { list-style: none; padding: 0; }
+.quiz-card li { margin: 10px 0; }
 
 .quiz-card button {
   width: 100%;
@@ -440,33 +506,54 @@
   transform: scale(1.05);
 }
 
-#result h3 {
-  font-size: 1.8rem;
+#result h3 { font-size: 1.8rem; color: #4B0082; }
+#result p { font-size: 1.2rem; margin: 15px 0; font-weight: bold; }
+
+/* 🟣 الغطاء الرمادي */
+.quiz-overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.start-btn {
+  background: #fff;
   color: #4B0082;
+  border: none;
+  font-size: 2rem;
+  padding: 20px 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.4);
 }
 
-#result p {
-  font-size: 1.2rem;
-  margin: 15px 0;
-  font-weight: bold;
+.start-btn:hover {
+  background: #4B0082;
+  color: #fff;
+  transform: scale(1.1);
 }
 
-@keyframes fadeIn {
-  from {opacity: 0;}
-  to {opacity: 1;}
-}
-
-@keyframes slideUp {
-  from {transform: translateY(20px); opacity: 0;}
-  to {transform: translateY(0); opacity: 1;}
-}
+@keyframes fadeIn { from {opacity: 0;} to {opacity: 1;} }
+@keyframes slideUp { from {transform: translateY(20px); opacity: 0;} to {transform: translateY(0); opacity: 1;} }
 </style>
 
 <script>
 let score = 0;
 let timer = 60;
 let interval;
-let totalQuestions = 3;
+let totalQuestions = 11;
+
+function startQuiz() {
+  document.getElementById("quiz-overlay").style.display = "none";
+  startTimer();
+  updateProgress(0);
+}
 
 function startTimer() {
   interval = setInterval(() => {
@@ -512,14 +599,20 @@ function restartQuiz() {
   document.getElementById("progress-bar").style.width = "0%";
   document.getElementById("progress-bar").innerText = "0%";
   clearInterval(interval);
-  startTimer();
+  document.getElementById("quiz-overlay").style.display = "flex";
 }
-
-window.onload = () => {
-  startTimer();
-  updateProgress(0);
-};
 </script>
+ 
+
+<footer id="contact">
+  <p>📩 تواصل معنا:</p>
+  <p>
+    <a href="https://www.facebook.com/share/1CEg7nhGao/">Facebook</a> |
+    <a href="https://www.instagram.com/mednova_club?igsh=b29yamk4MmNhNnJs">Instagram</a> |
+    <a href="mednova@gmail.com">Email</a>
+  </p>
+  <p>© 2025 Med Nova Club</p>
+</foote>
 
 
 </body>
